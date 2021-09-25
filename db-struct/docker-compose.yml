@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  cef_pg:
+    image: postgres:13
+    container_name: shopping-cart
+    restart: on-failure
+    command: postgres -c 'max_connections=200'
+    environment:
+      POSTGRES_DB: shopping_cart
+      POSTGRES_USER: shopping_cart
+      POSTGRES_PASSWORD: shopping_cart
+    ports:
+      - 5435:5432
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
