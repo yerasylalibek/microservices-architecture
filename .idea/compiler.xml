@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="catalog" />
+        <module name="cart" />
+        <module name="inventory" />
+        <module name="order" />
+        <module name="customer" />
+        <module name="db-struct" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cart" target="1.8" />
+      <module name="catalog" target="1.8" />
+      <module name="customer" target="1.8" />
+      <module name="db-struct" target="1.8" />
+      <module name="inventory" target="1.8" />
+      <module name="order" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cart" options="-parameters" />
+      <module name="catalog" options="-parameters" />
+      <module name="customer" options="-parameters" />
+      <module name="db-struct" options="-parameters" />
+      <module name="inventory" options="-parameters" />
+      <module name="order" options="-parameters" />
+    </option>
+  </component>
+</project>
