@@ -6,6 +6,5 @@ The software allows online shopping customers to accumulate a list of items for 
 This is a shopping cart application developed using Microservice Architecture with Spring Boot, Spring Cloud.
 
 
-
 run command: docker-compose up
 
