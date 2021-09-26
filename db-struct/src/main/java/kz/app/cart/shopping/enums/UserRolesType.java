@@ -1,7 +1,7 @@
 package kz.app.cart.shopping.enums;
 
-public enum UserRoles {
+public enum UserRolesType {
     ADMIN,
     MODERATOR,
-    USER
+    CLIENT
 }

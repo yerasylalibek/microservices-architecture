@@ -1,9 +1,6 @@
 package kz.app.cart.shopping.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -47,10 +44,10 @@ public class Users {
     private String contact;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role",
+    @JoinTable(name = "_user_role",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    private Set<RoleEntity> roles;
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id"))
+    private Set<Role> roles;
 
     @Column(name = "status")
     private String status;
