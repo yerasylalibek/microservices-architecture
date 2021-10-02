@@ -23,6 +23,6 @@ public class CartProduct {
     @Column(name = "detail")
     private String detail;
 
-    @ManyToOne
-    private CartCategory cartCategory;
+//    @ManyToOne
+//    private CartCategory cartCategory;
 }
