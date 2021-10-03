@@ -7,7 +7,7 @@ eureka:
 
 spring:
   application:
-    name: customer-service
+    name: order-service
   datasource:
     url: jdbc:postgresql://localhost:5435/shopping_cart
     username: shopping_cart
@@ -27,8 +27,8 @@ spring:
     enabled: false
 
 server:
-  port: 8087
+  port: 8086
   servlet:
-    context-path: /customer
+    context-path: /order
 logging:
   level: info

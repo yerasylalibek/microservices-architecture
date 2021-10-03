@@ -18,14 +18,14 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="cart" target="1.8" />
-      <module name="catalog" target="1.8" />
+      <module name="cart" target="8" />
+      <module name="catalog" target="8" />
       <module name="customer" target="8" />
       <module name="db-struct" target="1.8" />
       <module name="demo" target="1.8" />
       <module name="eureka" target="8" />
-      <module name="inventory" target="1.8" />
-      <module name="order" target="1.8" />
+      <module name="inventory" target="8" />
+      <module name="order" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
