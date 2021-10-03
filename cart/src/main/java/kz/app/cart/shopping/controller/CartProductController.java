@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping(value = "/product")
 public class CartProductController {
     
     private final ICartProductService cartProductService;
