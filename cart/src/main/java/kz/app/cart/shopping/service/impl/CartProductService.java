@@ -1,10 +1,7 @@
 package kz.app.cart.shopping.service.impl;
 
 import kz.app.cart.shopping.dto.CartProductDTO;
-import kz.app.cart.shopping.model.Cart;
 import kz.app.cart.shopping.model.CartProduct;
-import kz.app.cart.shopping.model.CartProductCategory;
-import kz.app.cart.shopping.repository.CartProductCategoryRepository;
 import kz.app.cart.shopping.repository.CartProductRepository;
 import kz.app.cart.shopping.service.ICartProductService;
 import lombok.AllArgsConstructor;
