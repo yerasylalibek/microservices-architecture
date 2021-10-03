@@ -38,7 +38,7 @@ public class Order {
     @JoinColumn(name = "id_order_detail", referencedColumnName = "id_detail")
     private OrderDetail orderDetail;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
 }

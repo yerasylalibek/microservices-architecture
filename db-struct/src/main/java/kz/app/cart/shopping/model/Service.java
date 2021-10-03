@@ -30,7 +30,7 @@ public class Service {
     @JoinColumn(name = "vendor_id")
     private Vendor vendor;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
 }
