@@ -38,7 +38,7 @@ public class Vendor {
     @Column(name = "vendor_password")
     private String vendorPassword;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
 }

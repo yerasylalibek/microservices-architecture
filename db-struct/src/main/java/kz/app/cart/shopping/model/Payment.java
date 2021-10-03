@@ -32,7 +32,7 @@ public class Payment {
     @Column(name = "paid_by")
     private String paidBy;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
 }

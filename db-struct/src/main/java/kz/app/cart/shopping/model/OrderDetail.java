@@ -19,9 +19,9 @@ public class OrderDetail {
     @ManyToOne(fetch = FetchType.LAZY)
     private Order order;
 
-//    @ManyToOne
-//    @JoinColumn(name = "product_id")
-//    private Product product;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private CartProduct product;
 
     @Column(name = "quantity")
     private int quantity;
@@ -35,7 +35,7 @@ public class OrderDetail {
     @Column(name = "remarks")
     private String remarks;
 
-//    @ManyToOne
-//    @JoinColumn(name = "vender_id")
-//    private Vender vender;
+    @ManyToOne
+    @JoinColumn(name = "vendor_id")
+    private Vendor vendor;
 }
