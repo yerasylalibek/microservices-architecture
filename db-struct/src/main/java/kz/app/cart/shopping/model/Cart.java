@@ -1,5 +1,6 @@
 package kz.app.cart.shopping.model;
 
+import com.sun.istack.NotNull;
 import com.sun.xml.internal.ws.developer.UsesJAXBContext;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +22,7 @@ public class Cart {
 
     @Id
     @Column(name = "id_cart")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "description", length = 1000)

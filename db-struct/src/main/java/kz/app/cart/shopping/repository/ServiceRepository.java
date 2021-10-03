@@ -1,4 +1,4 @@
-package kz.app.cart.shopping.repositories;
+package kz.app.cart.shopping.repository;
 
 import kz.app.cart.shopping.model.Service;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Data
 @Builder
 @Entity
-@Table(schema = "_cart_category")
+@Table(name = "_cart_category")
 @AllArgsConstructor
 @NoArgsConstructor
 public class CartCategory {

@@ -1,4 +1,4 @@
-package kz.app.cart.shopping.repositories;
+package kz.app.cart.shopping.repository;
 
 import kz.app.cart.shopping.model.CartProduct;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface CartProductRepository extends JpaRepository<CartProduct, Long> {
-    Optional<CartProduct> findById(Long id);
+    CartProduct getById(Long id);
 }
