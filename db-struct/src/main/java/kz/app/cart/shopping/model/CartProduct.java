@@ -1,12 +1,17 @@
 package kz.app.cart.shopping.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "_cart_product")
+@AllArgsConstructor
+@NoArgsConstructor
 public class CartProduct {
 
     @Id
@@ -23,6 +28,7 @@ public class CartProduct {
     @Column(name = "detail")
     private String detail;
 
-//    @ManyToOne
-//    private CartCategory cartCategory;
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CartCategory cartCategory;
 }

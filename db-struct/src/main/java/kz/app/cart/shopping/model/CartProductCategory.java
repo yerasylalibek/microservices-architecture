@@ -11,26 +11,21 @@ import javax.persistence.*;
 @Data
 @Builder
 @Entity
-@Table(schema = "_cart_category")
+@Table(schema = "_cart_product_category")
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartCategory {
+public class CartProductCategory {
 
     @Id
-    @Column(name = "id_category")
+    @Column(name = "id_cart_product_category")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @Column(name = "category_name")
     private String categoryName;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private Users user;
-
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    private Cart cart;
-
+    private Users users;
 
 }
