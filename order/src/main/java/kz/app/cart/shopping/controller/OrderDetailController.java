@@ -1,11 +1,8 @@
 package kz.app.cart.shopping.controller;
 
-import kz.app.cart.shopping.dto.OrderDTO;
 import kz.app.cart.shopping.dto.OrderDetailDTO;
-import kz.app.cart.shopping.model.Order;
 import kz.app.cart.shopping.model.OrderDetail;
 import kz.app.cart.shopping.service.IOrderDetailService;
-import kz.app.cart.shopping.service.IOrderService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

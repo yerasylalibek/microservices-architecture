@@ -25,8 +25,8 @@ public class OrderDTO {
     @ApiModelProperty(example = "1", name = "reference_no")
     private int reference_no;
 
-    @JsonProperty("curtomer_id")
-    @ApiModelProperty(example = "1", name = "curtomer_id")
+    @JsonProperty("customer_id")
+    @ApiModelProperty(example = "1", name = "customer_id")
     private Long customerId;
 
     @JsonProperty("order_date")

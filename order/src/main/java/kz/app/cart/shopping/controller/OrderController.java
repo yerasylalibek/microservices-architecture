@@ -1,7 +1,6 @@
 package kz.app.cart.shopping.controller;
 
 import kz.app.cart.shopping.dto.OrderDTO;
-import kz.app.cart.shopping.model.Cart;
 import kz.app.cart.shopping.model.Order;
 import kz.app.cart.shopping.service.IOrderService;
 import lombok.AllArgsConstructor;
