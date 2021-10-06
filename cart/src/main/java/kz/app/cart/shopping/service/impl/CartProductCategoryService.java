@@ -1,7 +1,10 @@
 package kz.app.cart.shopping.service.impl;
 
+import com.google.gson.Gson;
 import kz.app.cart.shopping.dto.CartProductCategoryDTO;
+import kz.app.cart.shopping.model.Cart;
 import kz.app.cart.shopping.model.CartProductCategory;
+import kz.app.cart.shopping.repository.CartProductCategoryRepository;
 import kz.app.cart.shopping.service.ICartProductCategoryService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,23 +16,41 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CartProductCategoryService implements ICartProductCategoryService {
+
+    private final CartProductCategoryRepository productCategoryRepository;
+
     @Override
     public CartProductCategory save(CartProductCategoryDTO cartProductCategoryDTO) {
-        return null;
+        CartProductCategory cartProductCategory;
+
+        if (cartProductCategoryDTO.getId() == null) {
+            cartProductCategory = CartProductCategory.builder()
+                    .categoryName(cartProductCategoryDTO.getCategoryName())
+                    .build();
+        } else {
+            cartProductCategory = getById(cartProductCategoryDTO.getId());
+            cartProductCategory.setCategoryName(cartProductCategoryDTO.getCategoryName());
+        }
+
+        CartProductCategory savedCartProductCategory = productCategoryRepository.saveAndFlush(cartProductCategory);
+
+        log.info("savedCartProductCategory " + savedCartProductCategory.getId());
+
+        return savedCartProductCategory;
     }
 
     @Override
     public void deleteById(Long id) {
-
+        productCategoryRepository.deleteById(id);
     }
 
     @Override
     public CartProductCategory getById(Long id) {
-        return null;
+        return productCategoryRepository.getById(id);
     }
 
     @Override
     public List<CartProductCategory> getAll() {
-        return null;
+        return productCategoryRepository.findAll();
     }
 }
