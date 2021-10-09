@@ -1,12 +1,9 @@
 package kz.app.cart.shopping.model;
 
-import com.sun.istack.NotNull;
-import com.sun.xml.internal.ws.developer.UsesJAXBContext;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CollectionId;
 
 import javax.persistence.*;
 import java.util.ArrayList;

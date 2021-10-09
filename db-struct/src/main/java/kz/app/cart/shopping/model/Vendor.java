@@ -1,12 +1,18 @@
 package kz.app.cart.shopping.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Table(name = "_vendor")
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Vendor {
 
     @Id

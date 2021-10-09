@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IOrderService {
 
-    Order save(OrderDTO cartDTO);
+    Order save(OrderDTO orderDTO);
     void deleteById(Long id);
     Order getById(Long id);
 

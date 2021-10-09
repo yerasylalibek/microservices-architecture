@@ -19,15 +19,15 @@ public class OrderDetailDTO {
     @ApiModelProperty(required = true, example = "1", name = "Order detail id")
     private Long id;
 
-    @JsonProperty("reference_no")
+    @JsonProperty("referenceNo")
     @ApiModelProperty(example = "1", name = "reference_no")
-    private int reference_no;
+    private int referenceNo;
 
-    @JsonProperty("order_id")
+    @JsonProperty("orderId")
     @ApiModelProperty(example = "1", name = "Order id")
     private Long orderId;
 
-    @JsonProperty("card_product_id")
+    @JsonProperty("productId")
     @ApiModelProperty(example = "1", name = "Card product id")
     private Long productId;
 
@@ -35,7 +35,7 @@ public class OrderDetailDTO {
     @ApiModelProperty(example = "10", name = "Quantity")
     private int quantity;
 
-    @JsonProperty("quantity_price")
+    @JsonProperty("quantityPrice")
     @ApiModelProperty(example = "10", name = "Quantity price")
     private int quantityPrice;
 
@@ -47,7 +47,7 @@ public class OrderDetailDTO {
     @ApiModelProperty(example = "EXAMPLE", name = "Remarks")
     private String remarks;
 
-    @JsonProperty("vendor_id")
+    @JsonProperty("vendorId")
     @ApiModelProperty(example = "1", name = "Vendor id")
     private Long vendorId;
 

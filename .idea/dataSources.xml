@@ -7,5 +7,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5435/shopping_cart</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="cabinet@172.30.84.136" uuid="e94ea973-035a-4e6b-a1e2-4640345ff6eb">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://172.30.84.136:5432/cabinet</jdbc-url>
+    </data-source>
   </component>
 </project>

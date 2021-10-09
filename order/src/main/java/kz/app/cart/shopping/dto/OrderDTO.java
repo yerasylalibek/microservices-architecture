@@ -25,22 +25,26 @@ public class OrderDTO {
     @ApiModelProperty(example = "1", name = "reference_no")
     private int reference_no;
 
-    @JsonProperty("customer_id")
+    @JsonProperty("customerId")
     @ApiModelProperty(example = "1", name = "customer_id")
     private Long customerId;
 
-    @JsonProperty("order_date")
+    @JsonProperty("orderDate")
     @ApiModelProperty(example = "12-12-2020", name = "Order date")
     private Date orderDate;
 
-    @JsonProperty("expected_delivery_date")
+    @JsonProperty("expectedDeliveryDate")
     @ApiModelProperty(example = "12-12-2020", name = "Expected delivery date")
     private Date expectedDeliveryDate;
 
-    @JsonProperty("number_of_items")
+    @JsonProperty("numberOfItems")
     @ApiModelProperty(example = "10", name = "Number of items")
     private int numberOfItems;
 
-    @JsonProperty("total_amount")
+    @JsonProperty("totalAmount")
     @ApiModelProperty(example = "10", name = "Total amount")
-    private int totalAmount;}
+    private int totalAmount;
+
+    @JsonProperty("orderDetailDTO")
+    private OrderDetailDTO orderDetailDTO;
+}

@@ -1,23 +1,25 @@
 package kz.app.cart.shopping.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Table(name = "_order_detail")
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_detail")
     private Long id;
-
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Order order;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
