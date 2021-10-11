@@ -28,7 +28,7 @@ public class Cart {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    private Cart cart;
+    private Order order;
 
     @Column(name = "status")
     private String status;

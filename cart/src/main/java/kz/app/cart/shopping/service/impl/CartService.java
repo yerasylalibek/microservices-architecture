@@ -2,6 +2,7 @@ package kz.app.cart.shopping.service.impl;
 
 import kz.app.cart.shopping.dto.CartDTO;
 import kz.app.cart.shopping.model.Cart;
+import kz.app.cart.shopping.model.Order;
 import kz.app.cart.shopping.repository.CartRepository;
 import kz.app.cart.shopping.service.ICartService;
 import lombok.AllArgsConstructor;
@@ -39,6 +40,20 @@ public class CartService implements ICartService {
             cart.setStatus(cartDTO.getStatus());
             cart.setImages(cartDTO.getImages());
         }
+
+        Cart savedCart = cartRepository.saveAndFlush(cart);
+        log.info("end saving by id : " + savedCart.getId());
+
+        return savedCart;
+    }
+
+    @Override
+    public Cart updateCart(Order order, Long cartId) {
+
+        log.info("start updating cart");
+
+        Cart cart = getById(cartId);
+        cart.setOrder(order);
 
         Cart savedCart = cartRepository.saveAndFlush(cart);
         log.info("end saving by id : " + savedCart.getId());

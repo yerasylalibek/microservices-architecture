@@ -2,6 +2,7 @@ package kz.app.cart.shopping.controller;
 
 import kz.app.cart.shopping.dto.CartDTO;
 import kz.app.cart.shopping.model.Cart;
+import kz.app.cart.shopping.model.Order;
 import kz.app.cart.shopping.service.ICartService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,11 @@ public class CartController {
     @PostMapping
     public ResponseEntity<Cart> create(@RequestBody CartDTO cartDTO) {
         return ResponseEntity.ok(cartService.save(cartDTO));
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<Cart> updateCart(@RequestBody Order order, @RequestParam Long cartId) {
+        return ResponseEntity.ok(cartService.updateCart(order, cartId));
     }
 
     @GetMapping("/{id}")

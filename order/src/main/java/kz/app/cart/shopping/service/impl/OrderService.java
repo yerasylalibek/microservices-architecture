@@ -44,9 +44,10 @@ public class OrderService implements IOrderService {
                     HttpMethod.GET,
                     entity,
                     object.getClass());
+            log.info("responseEntity in GET METHOD = {} ", responseEntity.getBody());
             return responseEntity.getBody();
         } catch (Exception e) {
-            System.out.println("Exception in GET method : " + e.getLocalizedMessage());
+            log.error("Exception in GET method : " + e.getLocalizedMessage());
             return null;
         }
     }
@@ -62,9 +63,10 @@ public class OrderService implements IOrderService {
                     HttpMethod.POST,
                     entity,
                     object.getClass());
+            log.info("responseEntity in POST METHOD = {} ", responseEntity.getBody());
             return responseEntity.getBody();
         } catch (Exception e) {
-            System.out.println("Exception in POST method : " + e.getLocalizedMessage());
+            log.error("Exception in POST method : " + e.getLocalizedMessage());
             return null;
         }
     }
@@ -76,7 +78,6 @@ public class OrderService implements IOrderService {
         OrderDetail orderDetail = orderDetailService.update(orderDTO);
         Customer customer = (Customer) runGetMethod(customerApi + orderDTO.getCustomerId(), new Customer());
 
-        List<Long> cartIds = orderDTO.getCartId();
 
         if (orderDTO.getId() == null) {
             order = Order.builder()
@@ -104,10 +105,19 @@ public class OrderService implements IOrderService {
         Order savedOrder = orderRepository.saveAndFlush(order);
 
         log.info("order saved = " + savedOrder.getId());
+        updateCart(savedOrder, orderDTO.getCartId());
 
         return savedOrder;
     }
 
+    private void updateCart (Order order, List<Long> cartIds) {
+        log.info("updating cart");
+        for (Long cartId : cartIds) {
+            Cart updatedCart = (Cart) runPostMethod(cartApi + "update?cartId" + cartId, order, new Cart());
+            log.info("cart updated = " + cartId);
+        }
+
+    }
     @Override
     public boolean makeOrder(Long customerId, Long cartId) {
 
