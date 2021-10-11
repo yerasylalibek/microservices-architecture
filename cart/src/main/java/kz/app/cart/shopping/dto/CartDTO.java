@@ -25,4 +25,5 @@ public class CartDTO {
 
     @JsonProperty("images")
     private byte[] images;
+
 }

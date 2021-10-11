@@ -56,7 +56,7 @@ public class CartService implements ICartService {
         cart.setOrder(order);
 
         Cart savedCart = cartRepository.saveAndFlush(cart);
-        log.info("end saving by id : " + savedCart.getId());
+        log.info("updated successfully : " + savedCart.getId());
 
         return savedCart;
     }

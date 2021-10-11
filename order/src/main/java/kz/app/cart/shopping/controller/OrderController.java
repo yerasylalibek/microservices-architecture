@@ -15,14 +15,9 @@ public class OrderController {
 
     private final IOrderService orderService;
 
-    @PostMapping
+    @RequestMapping(method = RequestMethod.POST, value = "/test")
     public ResponseEntity<Order> create(@RequestBody OrderDTO orderDTO) {
         return ResponseEntity.ok(orderService.save(orderDTO));
-    }
-
-    @PostMapping()
-    public ResponseEntity<?> makeOrder(@RequestParam Long customerId, @RequestParam Long cartId) {
-        return ResponseEntity.ok(orderService.makeOrder(customerId, cartId));
     }
 
     @GetMapping("/{id}")

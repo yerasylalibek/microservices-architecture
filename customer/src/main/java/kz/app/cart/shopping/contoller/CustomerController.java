@@ -4,19 +4,28 @@ import kz.app.cart.shopping.dto.CustomerDTO;
 import kz.app.cart.shopping.model.Customer;
 import kz.app.cart.shopping.service.ICustomerService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Slf4j
 @AllArgsConstructor
 public class CustomerController {
 
     private final ICustomerService customerService;
 
     @PostMapping
-    public ResponseEntity<Customer> create(@RequestBody CustomerDTO customerDTO) {
+    public ResponseEntity<Customer> save(@RequestBody CustomerDTO customerDTO) {
+        log.info("customerDTO : " + customerDTO.toString());
+        return ResponseEntity.ok(customerService.save(customerDTO));
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/test")
+    public ResponseEntity<?> update(@RequestBody CustomerDTO customerDTO) {
+        log.info("here");
         return ResponseEntity.ok(customerService.save(customerDTO));
     }
 

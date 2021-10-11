@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Table(name = "_customer")
 @Entity
@@ -13,11 +14,19 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
+public class Customer implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "curtomer_id")
+    @GeneratedValue(
+            strategy = GenerationType.AUTO,
+            generator = "customer_gen"
+    )
+    @SequenceGenerator(
+            name = "customer_gen",
+            sequenceName = "_customer_seq",
+            allocationSize = 1
+    )
+    @Column(name = "customer_id")
     private Long id;
 
     @Column(name = "customer_code")

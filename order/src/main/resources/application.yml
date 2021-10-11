@@ -35,6 +35,6 @@ logging:
 
 service:
   customer:
-    url: http://localhost:8087/customer/
+    url: ${CUSTOMER_SERVICE_URL:http://localhost:8087/customer/}
   cart:
-    url: http://localhost:8083/cart/
+    url: ${CART_SERVICE_URL:http://localhost:8083/cart/}

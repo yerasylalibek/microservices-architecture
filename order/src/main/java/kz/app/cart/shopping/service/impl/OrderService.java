@@ -17,6 +17,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -27,13 +28,16 @@ public class OrderService implements IOrderService {
     private final OrderRepository orderRepository;
     protected final IOrderDetailService orderDetailService;
 
-    @Value("${service.customer.url}")
-    String customerApi;
+//    @Value("${service.customer.url}")
+//    String customerApi;
+    final String customerApi = "http://localhost:8087/customer/";
 
-    @Value("${service.cart.url}")
-    String cartApi;
+//    @Value("${service.cart.url}")
+//    String cartApi;
+    final String cartApi = "http://localhost:8083/cart/";
 
     private Object runGetMethod(String url, Object object) {
+        log.info("get method url : " + url);
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", "application/json");
@@ -53,6 +57,7 @@ public class OrderService implements IOrderService {
     }
 
     private Object runPostMethod(String url, Object body, Object object) {
+        log.info("post method url : " + url);
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", "application/json");
@@ -82,23 +87,23 @@ public class OrderService implements IOrderService {
         if (orderDTO.getId() == null) {
             order = Order.builder()
                     .referenceNo(orderDTO.getReference_no())
-                    .orderDate(orderDTO.getOrderDate())
+                    .orderDate(new Date())
                     .expectedDeliveryDate(orderDTO.getExpectedDeliveryDate())
                     .numberOfItems(orderDTO.getNumberOfItems())
                     .totalAmount(orderDTO.getTotalAmount())
                     .orderDetail(orderDetail)
-                    .customer(customer)
+//                    .customer(customer)
                     .build();
 
         } else {
             order = getById(orderDTO.getId());
 
             order.setReferenceNo(orderDTO.getReference_no());
-            order.setOrderDate(orderDTO.getOrderDate());
+            order.setOrderDate(new Date());
             order.setExpectedDeliveryDate(orderDTO.getExpectedDeliveryDate());
             order.setNumberOfItems(orderDTO.getNumberOfItems());
             order.setOrderDetail(orderDetail);
-            order.setCustomer(customer);
+//            order.setCustomer(customer);
             order.setTotalAmount(orderDTO.getTotalAmount());
         }
 
@@ -107,16 +112,17 @@ public class OrderService implements IOrderService {
         log.info("order saved = " + savedOrder.getId());
         updateCart(savedOrder, orderDTO.getCartId());
 
+        log.info("carts updated");
+
         return savedOrder;
     }
 
     private void updateCart (Order order, List<Long> cartIds) {
         log.info("updating cart");
         for (Long cartId : cartIds) {
-            Cart updatedCart = (Cart) runPostMethod(cartApi + "update?cartId" + cartId, order, new Cart());
+            Cart updatedCart = (Cart) runPostMethod(cartApi + "update?cartId=" + cartId, order, new Cart());
             log.info("cart updated = " + cartId);
         }
-
     }
     @Override
     public boolean makeOrder(Long customerId, Long cartId) {

@@ -22,7 +22,7 @@ public class CustomerDTO {
     @ApiModelProperty(required = true, example = "Erasyl", name = "Customer name")
     private String customerName;
 
-    @JsonProperty("customerName")
+    @JsonProperty("avatar")
     @ApiModelProperty(example = "Erasyl", name = "Customer name")
     private byte[] avatar;
 

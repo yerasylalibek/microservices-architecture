@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping(value = "/detail")
 public class OrderDetailController {
 
     private final IOrderDetailService orderDetailService;

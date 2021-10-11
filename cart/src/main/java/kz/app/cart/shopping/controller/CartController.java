@@ -1,16 +1,20 @@
 package kz.app.cart.shopping.controller;
 
+import com.google.gson.Gson;
 import kz.app.cart.shopping.dto.CartDTO;
 import kz.app.cart.shopping.model.Cart;
 import kz.app.cart.shopping.model.Order;
 import kz.app.cart.shopping.service.ICartService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.GenericSignatureFormatError;
 import java.util.List;
 
 @RestController
+@Slf4j
 @AllArgsConstructor
 public class CartController {
 
@@ -23,6 +27,9 @@ public class CartController {
 
     @PostMapping("/update")
     public ResponseEntity<Cart> updateCart(@RequestBody Order order, @RequestParam Long cartId) {
+        log.info("updating cart controller");
+        log.info("cart = " + new Gson().toJson(order));
+        log.info("cartId = " + cartId);
         return ResponseEntity.ok(cartService.updateCart(order, cartId));
     }
 
