@@ -32,3 +32,9 @@ server:
     context-path: /order
 logging:
   level: info
+
+service:
+  customer:
+    url: http://localhost:8087/customer/
+  cart:
+    url: http://localhost:8083/cart/

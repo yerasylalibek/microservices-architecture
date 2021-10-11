@@ -1,8 +1,6 @@
 package kz.app.cart.shopping.controller;
 
-import kz.app.cart.shopping.dto.CartCategoryDTO;
 import kz.app.cart.shopping.dto.CartProductCategoryDTO;
-import kz.app.cart.shopping.model.CartCategory;
 import kz.app.cart.shopping.model.CartProductCategory;
 import kz.app.cart.shopping.service.ICartProductCategoryService;
 import lombok.AllArgsConstructor;

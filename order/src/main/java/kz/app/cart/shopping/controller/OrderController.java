@@ -20,6 +20,11 @@ public class OrderController {
         return ResponseEntity.ok(orderService.save(orderDTO));
     }
 
+    @PostMapping()
+    public ResponseEntity<?> makeOrder(@RequestParam Long customerId, @RequestParam Long cartId) {
+        return ResponseEntity.ok(orderService.makeOrder(customerId, cartId));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Order> getById(@PathVariable Long id){
         return ResponseEntity.ok(orderService.getById(id));

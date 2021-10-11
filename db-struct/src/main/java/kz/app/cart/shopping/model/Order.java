@@ -6,7 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "_order")
 @Entity
@@ -24,8 +26,8 @@ public class Order {
     @Column(name = "reference_no")
     private int referenceNo;
 
-    @ManyToOne
-    @JoinColumn(name = "curtomer_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_curtomer_id", referencedColumnName = "curtomer_id")
     private Customer customer;
 
     @Column(name = "order_date")
@@ -39,6 +41,11 @@ public class Order {
 
     @Column(name = "total_amount")
     private int totalAmount;
+
+    @OneToMany(mappedBy = "order",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Cart> carts = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_order_detail", referencedColumnName = "id_detail")

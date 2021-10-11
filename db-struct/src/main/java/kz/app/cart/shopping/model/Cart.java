@@ -1,5 +1,6 @@
 package kz.app.cart.shopping.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,7 +26,9 @@ public class Cart {
     @Column(name = "description", length = 1000)
     private String description;
 
-//    private CartCategory cartCategory;
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Cart cart;
 
     @Column(name = "status")
     private String status;

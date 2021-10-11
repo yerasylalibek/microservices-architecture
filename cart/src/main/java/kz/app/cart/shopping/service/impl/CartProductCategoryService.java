@@ -1,8 +1,6 @@
 package kz.app.cart.shopping.service.impl;
 
-import com.google.gson.Gson;
 import kz.app.cart.shopping.dto.CartProductCategoryDTO;
-import kz.app.cart.shopping.model.Cart;
 import kz.app.cart.shopping.model.CartProductCategory;
 import kz.app.cart.shopping.repository.CartProductCategoryRepository;
 import kz.app.cart.shopping.service.ICartProductCategoryService;

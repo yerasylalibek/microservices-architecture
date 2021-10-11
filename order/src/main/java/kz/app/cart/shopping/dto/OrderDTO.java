@@ -3,14 +3,11 @@ package kz.app.cart.shopping.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import kz.app.cart.shopping.model.Customer;
-import kz.app.cart.shopping.model.OrderDetail;
-import kz.app.cart.shopping.model.Users;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -28,6 +25,10 @@ public class OrderDTO {
     @JsonProperty("customerId")
     @ApiModelProperty(example = "1", name = "customer_id")
     private Long customerId;
+
+    @JsonProperty("cartId")
+    @ApiModelProperty(name = "cart id")
+    private List<Long> cartId;
 
     @JsonProperty("orderDate")
     @ApiModelProperty(example = "12-12-2020", name = "Order date")

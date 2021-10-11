@@ -1,7 +1,6 @@
 package kz.app.cart.shopping.service.impl;
 
 import kz.app.cart.shopping.dto.CartCategoryDTO;
-import kz.app.cart.shopping.model.Cart;
 import kz.app.cart.shopping.model.CartCategory;
 import kz.app.cart.shopping.repository.CartCategoryRepository;
 import kz.app.cart.shopping.service.ICartCategoryService;

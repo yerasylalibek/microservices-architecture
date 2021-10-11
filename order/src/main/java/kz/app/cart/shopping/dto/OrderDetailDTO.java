@@ -3,8 +3,6 @@ package kz.app.cart.shopping.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import kz.app.cart.shopping.model.CartProduct;
-import kz.app.cart.shopping.model.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
