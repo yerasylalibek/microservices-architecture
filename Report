@@ -1,0 +1,9 @@
+Here are the microservices:
+1)catalog-service: It provides REST API to provide catalog information like products.//Erasyl Alibek
+2)inventory-service: It provides a REST API to manage product inventory.
+3)cart-service: It provides a REST API to hold the customer cart details.//Magzhan Baimbet
+4)order-service: It provides a REST API to manage orders.//Magzhan Baimbet
+5)customer-service: It provides a REST API to manage customer information.//Assel Sultan
+6)Db-Struct-service: the place where all the models and the repository will be stored//Erasyl Alibek
+shoppingCart-ui: It is customer-facing front-end web application.
+
