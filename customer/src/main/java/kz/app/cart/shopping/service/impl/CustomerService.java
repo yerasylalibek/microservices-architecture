@@ -21,29 +21,30 @@ public class CustomerService implements ICustomerService {
     public Customer save(CustomerDTO customerDTO) {
         Customer customer;
 
-        log.info("Starting ");
+        log.info("Start save method");
 
         if (customerDTO.getId() == null) {
             log.info("new customer");
             customer = Customer.builder()
                     .customerCode(customerDTO.getCustomerCode())
                     .customerName(customerDTO.getCustomerName())
+                    .avatar(customerDTO.getAvatar())
                     .emailAddress(customerDTO.getEmailAddress())
                     .contactNumber(customerDTO.getContactNumber())
-                    
+                    .completeAddress(customerDTO.getCompleteAddress())
                     .username(customerDTO.getUsername())
                     .password(customerDTO.getPassword())
                     .build();
         } else {
-            log.info("Old Custoner");
+            log.info("not new customer");
             customer = getById(customerDTO.getId());
 
             customer.setCustomerCode(customerDTO.getCustomerCode());
             customer.setCustomerName(customerDTO.getCustomerName());
-         
+            customer.setAvatar(customerDTO.getAvatar());
             customer.setContactNumber(customerDTO.getContactNumber());
             customer.setEmailAddress(customerDTO.getEmailAddress());
-   
+            customer.setCompleteAddress(customerDTO.getCompleteAddress());
             customer.setUsername(customerDTO.getUsername());
             customer.setPassword(customerDTO.getPassword());
         }
@@ -64,5 +65,8 @@ public class CustomerService implements ICustomerService {
         return customerRepository.getById(id);
     }
 
-   
+    @Override
+    public List<Customer> getAll() {
+        return customerRepository.findAll();
+    }
 }
