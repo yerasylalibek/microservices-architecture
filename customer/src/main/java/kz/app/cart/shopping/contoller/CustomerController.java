@@ -12,7 +12,8 @@
  @Slf4j
  @AllArgsConstructor
  public class CustomerController {
-
+       @Autowired
+    private ItemService itemService;
      private final ICustomerService customerService;
  
      @PostMapping
@@ -32,10 +33,15 @@
          return ResponseEntity.ok(customerService.getById(id));
      }
   
-     @DeleteMapping("/{id}")
-     public void deleteById(@PathVariable Long id){
-         customerService.deleteById(id);
-     } 
+     @PostMapping(value = "/deleteitem")
+    public String deleteItem(@RequestParam(name = "id", defaultValue = "0") Long id){
+        ShopItems item = itemService.getItem(id);
+        if(item!=null){
+
+            itemService.deleteItem(item);
+        }
+        return "redirect:/";
+    }
 
      @GetMapping
      public ResponseEntity<List<Customer>> getAll() {
