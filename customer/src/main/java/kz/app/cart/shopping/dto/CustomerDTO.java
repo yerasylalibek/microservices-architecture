@@ -11,39 +11,27 @@ import lombok.Data;
 public class CustomerDTO {
 
     @JsonProperty("id")
-    @ApiModelProperty(example = "1", name = "Customer id")
+    @ApiModelProperty(example = "1", name = "Id")
     private Long id;
 
     @JsonProperty("customerCode")
-    @ApiModelProperty(example = "1", name = "Customer code")
+    @ApiModelProperty(example = "1", name = "Code")
     private String customerCode;
 
-    @JsonProperty("customerName")
-    @ApiModelProperty(required = true, example = "Erasyl", name = "Customer name")
-    private String customerName;
-
     @JsonProperty("avatar")
-    @ApiModelProperty(example = "Erasyl", name = "Customer name")
+    @ApiModelProperty(example = "Assel", name = "Name")
     private byte[] avatar;
 
     @JsonProperty("emailAddress")
-    @ApiModelProperty(required = true, example = "erasyl.iitu@gmail.com", name = "Customer email")
+    @ApiModelProperty(required = true, example = "aselek.m.s@gmail.com", name = "Email")
     private String emailAddress;
 
-    @JsonProperty("contactNumber")
-    @ApiModelProperty(example = "+77788746223", name = "Customer contact number")
-    private String contactNumber;
-
-    @JsonProperty("completeAddress")
-    @ApiModelProperty(example = "Almaty, Abay 78", name = "Customer address")
-    private String completeAddress;
-
     @JsonProperty("username")
-    @ApiModelProperty(required = true, example = "eraskaz", name = "Customer username")
+    @ApiModelProperty(required = true, example = "AsselSultan", name = "Username")
     private String username;
 
     @JsonProperty("password")
-    @ApiModelProperty(required = true, example = "12345", name = "Customer password")
+    @ApiModelProperty(required = true, example = "hello", name = "Password")
     private String password;
 
 }
