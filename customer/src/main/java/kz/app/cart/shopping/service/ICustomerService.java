@@ -2,14 +2,9 @@ package kz.app.cart.shopping.service;
 
 import kz.app.cart.shopping.dto.CustomerDTO;
 import kz.app.cart.shopping.model.Customer;
+ 
+ public interface ICustomerService {
 
-import java.util.List;
-
-public interface ICustomerService {
-
-    Customer save(CustomerDTO customerDTO);
-    void deleteById(Long id);
-    Customer getById(Long id);
-
-    List<Customer> getAll();
+     Customer save(CustomerDTO customerDTO);
+     Customer getById(Long id);
 }
