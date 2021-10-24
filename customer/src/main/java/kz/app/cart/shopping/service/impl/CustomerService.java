@@ -17,6 +17,50 @@ public class CustomerService implements ICustomerService {
 
     private final CustomerRepository customerRepository;
 
+    //    @Value("${service.order.url}")
+//    String orderApi;
+    final String orderApi = "http://localhost:8087/order/";
+
+    private Object runGetMethod(String url, Object object) {
+        log.info("get method url : " + url);
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Accept", "application/json");
+        HttpEntity entity = new HttpEntity(headers);
+        try {
+            HttpEntity<?> responseEntity = restTemplate.exchange(
+                    url,
+                    HttpMethod.GET,
+                    entity,
+                    object.getClass());
+            log.info("responseEntity in GET METHOD = {} ", responseEntity.getBody());
+            return responseEntity.getBody();
+        } catch (Exception e) {
+            log.error("Exception in GET method : " + e.getLocalizedMessage());
+            return null;
+        }
+    }
+
+    private Object runPostMethod(String url, Object body, Object object) {
+        log.info("post method url : " + url);
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Accept", "application/json");
+        HttpEntity entity = new HttpEntity(body, headers);
+        try {
+            HttpEntity<?> responseEntity = restTemplate.exchange(
+                    url,
+                    HttpMethod.POST,
+                    entity,
+                    object.getClass());
+            log.info("responseEntity in POST METHOD = {} ", responseEntity.getBody());
+            return responseEntity.getBody();
+        } catch (Exception e) {
+            log.error("Exception in POST method : " + e.getLocalizedMessage());
+            return null;
+        }
+    }
+
     @Override
     public Customer save(CustomerDTO customerDTO) {
         Customer customer;
