@@ -21,6 +21,9 @@ public class CustomerService implements ICustomerService {
 //    String orderApi;
     final String orderApi = "http://localhost:8087/order/";
 
+    final String orderApi = "http://localhost:8086/order/";
+
+
     private Object runGetMethod(String url, Object object) {
         log.info("get method url : " + url);
         RestTemplate restTemplate = new RestTemplate();
