@@ -63,11 +63,10 @@ public class CustomerService implements ICustomerService {
         }
     }
 
-    @Override
-    public Customer save(CustomerDTO customerDTO) {
-        Customer customer;
-
-        log.info("Start save method");
+     @Override
+      public Customer save(CustomerDTO customerDTO) {
+         Customer customer;
+         log.info("Start save method");
 
         if (customerDTO.getId() == null) {
             log.info("new customer");
