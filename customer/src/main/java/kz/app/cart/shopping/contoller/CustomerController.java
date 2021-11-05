@@ -34,6 +34,19 @@ public class CustomerController {
         return ResponseEntity.ok(customerService.getById(id));
     }
 
+    @HystrixCommand(fallbackMethod = "doDummyPay",
+            commandProperties = {
+                    @HystrixProperty(
+                            name= "circuitBreaker.requestVolumeThreshold",
+                            value="6"),
+                    @HystrixProperty(
+                            name= "circuitBreaker.sleepWindowInMilliseconds",
+                            value="10000"),
+                    @HystrixProperty(
+                            name= "circuitBreaker.enabled",
+                            value = "false")
+            } )
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id){
         customerService.deleteById(id);
