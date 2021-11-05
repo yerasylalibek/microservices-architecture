@@ -91,8 +91,23 @@ public class InventoryService implements InventoryServiceI {
     }
 
     @Override
+    @HystrixCommand(
+            fallbackMethod = "getInventoryInformationByIdFallback",
+            threadPoolKey = "getById",
+            threadPoolProperties = {
+                    @HystrixProperty(name="coreSize", value="100"),
+                    @HystrixProperty(name="maxQueueSize", value="50"),
+            }
+    )
     public Inventory getById(Long id) {
         return inventoryItemRepository.getById(id);
+    }
+
+    public Inventory getInventoryInformationByIdFallback(Long id){ //Название метода стоит ли менять?
+        Inventory inventory = new Inventory();
+        inventory.setProductCode("ProductCode is not available:Service Unavailable");
+        inventory.setQuantity("Quantity is not available:Service Unavailable");
+        return inventory;
     }
 
     @Override
