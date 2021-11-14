@@ -5,6 +5,16 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix stream
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: *
+
 spring:
   application:
     name: inventory-service
