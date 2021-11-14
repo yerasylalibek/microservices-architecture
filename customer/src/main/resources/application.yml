@@ -15,7 +15,25 @@
    dashboard:
      proxy-stream-allow-list: *
 
- server:
+ zuul:
+   routes:
+     customer-service:
+       path: /api/**
+       service-id: customer-service
+       strip-prefix: false
+
+     customer-request:
+       path: /customer/request/** #RequiresSomeCheck
+       service-id: customer-request
+       #strip-prefix: false
+     inventory-service:
+       path: /inventory/**
+       service-id: inventory-service
+       strip-prefix: false
+       sensitive-headers: Cookie,Set-Cookie
+
+
+   server:
    servlet:
      context-path: /customer
    port: ${SERVER_PORT:8087}

@@ -9,6 +9,8 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 @EnableHystrix
 @EnableHystrixDashboard
 @EnableCircuitBreaker
+@EnableEurekaClient
+@EnableZuulProxy
 public class InventoryApplication {
 
     public static void main(String[] args) {

@@ -15,6 +15,23 @@ hystrix:
   dashboard:
     proxy-stream-allow-list: *
 
+zuul:
+  routes:
+    inventory-service:
+      path: /api/**
+      service-id: inventory-service
+      strip-prefix: false
+
+      inventory-request:
+        path: /inventory/request/** #RequiresSomeCheck
+        service-id: inventory-request
+        #strip-prefix: false
+    customer-service:
+      path: /customer/**
+      service-id: customer-service
+      strip-prefix: false
+      sensitive-headers: Cookie,Set-Cookie
+
 spring:
   application:
     name: inventory-service
