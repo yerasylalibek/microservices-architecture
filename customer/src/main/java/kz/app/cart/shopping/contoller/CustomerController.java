@@ -20,7 +20,7 @@ public class CustomerController {
     @PostMapping
     public ResponseEntity<Customer> save(@RequestBody CustomerDTO customerDTO) {
         log.info("customerDTO : " + customerDTO.toString());
-        return ResponseEntity.ok(customerService.save(customerDTO));
+        return (ResponseEntity<Customer>) ResponseEntity.ok(customerService.save(customerDTO));
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/test")

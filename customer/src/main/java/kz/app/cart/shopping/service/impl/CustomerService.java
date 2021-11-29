@@ -6,7 +6,11 @@ import kz.app.cart.shopping.repository.CustomerRepository;
 import kz.app.cart.shopping.service.ICustomerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Service
@@ -69,15 +73,15 @@ public class CustomerService implements ICustomerService {
 
         if (customerDTO.getId() == null) {
             log.info("new customer");
-            customer = Customer.builder()
-                    .customerCode(customerDTO.getCustomerCode())
-                    .customerName(customerDTO.getCustomerName())
-                    .avatar(customerDTO.getAvatar())
-                    .emailAddress(customerDTO.getEmailAddress())
-                    .contactNumber(customerDTO.getContactNumber())
-                    .completeAddress(customerDTO.getCompleteAddress())
-                    .username(customerDTO.getUsername())
-                    .password(customerDTO.getPassword())
+            Customer.CustomerBuilder builder = Customer.builder();
+            builder.customerName(customerDTO.getCustomerName());
+            builder.avatar(customerDTO.getAvatar());
+            builder.emailAddress(customerDTO.getEmailAddress());
+            builder.contactNumber(customerDTO.getContactNumber());
+            builder.completeAddress(customerDTO.getCompleteAddress());
+            builder.username(customerDTO.getUsername());
+            builder.password(customerDTO.getPassword());
+            customer = builder
                     .build();
         } else {
             log.info("not new customer");
