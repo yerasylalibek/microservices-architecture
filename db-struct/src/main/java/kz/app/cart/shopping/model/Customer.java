@@ -4,9 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Entity;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Lob;
+import javax.persistence.SequenceGenerator;
 
 @Table(name = "_customer")
 @Entity
@@ -14,7 +20,7 @@ import java.io.Serializable;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer implements Serializable {
+public class Customer {
 
     @Id
     @GeneratedValue(
@@ -27,7 +33,7 @@ public class Customer implements Serializable {
             allocationSize = 1
     )
     @Column(name = "customer_id")
-    private Long id;
+    private  id;
 
     @Column(name = "customer_code")
     private String customerCode;
