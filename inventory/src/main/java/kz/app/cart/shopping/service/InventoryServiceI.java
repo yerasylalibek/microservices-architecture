@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface InventoryServiceI {
 
-    Inventory save(InventoryDTO inventoryDTO);
+    InventoryItem save(InventoryDTO inventoryDTO);
     void deleteById(Long id);
-    Inventory getById(Long id);
+    InventoryItem getById(Long id);
 
-    List<Inventory> getAll();
+    List<InventoryItem> getAll();
 }

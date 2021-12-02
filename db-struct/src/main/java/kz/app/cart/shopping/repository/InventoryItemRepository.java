@@ -1,5 +1,5 @@
-package  kz.app.cart.shopping.repositories;
-import kz.app.cart.shopping.entities.InventoryItem;
+package  kz.app.cart.shopping.repository;
+import kz.app.cart.shopping.model.InventoryItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

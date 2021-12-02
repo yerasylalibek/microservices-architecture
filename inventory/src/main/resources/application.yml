@@ -13,7 +13,10 @@ management:
 
 hystrix:
   dashboard:
-    proxy-stream-allow-list: *
+    proxy:
+     stream:
+      allow:
+        list: *
 
 zuul:
   routes:
@@ -52,6 +55,19 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   liquibase:
     enabled: false
+
+io:
+  reflectoring:
+   kafka:
+     bootstrap:
+      servers: localhost:9092
+        topic-1: CreateTeacherTopic
+
+  logging:
+   level:
+    org:
+     apache:
+       kafka: WARN
 
 server:
   port: 8085

@@ -1,12 +1,20 @@
 package kz.app.cart.shopping.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import kz.app.cart.shopping.config.KafkaSender;
 import kz.app.cart.shopping.dto.CustomerDTO;
 import kz.app.cart.shopping.model.Customer;
 import kz.app.cart.shopping.repository.CustomerRepository;
 import kz.app.cart.shopping.service.ICustomerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
 import java.util.List;
 
 @Service
@@ -15,6 +23,8 @@ import java.util.List;
 public class CustomerService implements ICustomerService {
 
     private final CustomerRepository customerRepository;
+    private KafkaSender kafkaSender;
+
 
     //    @Value("${service.order.url}")
 //    String orderApi;
@@ -99,10 +109,8 @@ public class CustomerService implements ICustomerService {
         return savedCustomer;
     }
 
-    public Customer getCustomerInformationByIdFallback(Long id){
-        Customer customer = new Customer();
-        customer.setName
-    }
+
+
     @Override
     public void deleteById(Long id) {
         customerRepository.deleteById(id);
@@ -116,8 +124,10 @@ public class CustomerService implements ICustomerService {
                     @HystrixProperty(name="coreSize", value="100"),
                     @HystrixProperty(name="maxQueueSize", value="50"),
             }
+
     )
     public Customer getById(Long id) {
+       kafkaSender.sendMessage("Attemp to create", "topic-1");
         return customerRepository.getById(id);
     }
 

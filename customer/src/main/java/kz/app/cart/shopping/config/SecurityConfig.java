@@ -27,4 +27,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .roles("REST_CLIENT");
     }
 }
-}

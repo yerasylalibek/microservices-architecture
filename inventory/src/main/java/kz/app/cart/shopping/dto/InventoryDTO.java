@@ -19,4 +19,8 @@ public class InventoryDTO {
     @ApiModelProperty(example = "Product quantity", name = "quantity")
     private String quantity;
 
+    @JsonProperty("id")
+    @ApiModelProperty(example = "id", name = "id")
+    private Long id;
+
 }
