@@ -1,18 +1,12 @@
 package kz.app.cart.shopping.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Entity;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Lob;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 @Table(name = "_customer")
 @Entity
@@ -33,7 +27,7 @@ public class Customer {
             allocationSize = 1
     )
     @Column(name = "customer_id")
-    private  id;
+    private  Long id;
 
     @Column(name = "customer_code")
     private String customerCode;

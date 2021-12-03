@@ -14,7 +14,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.List;
 
 @Service
@@ -24,9 +23,7 @@ public class CustomerService implements ICustomerService {
 
     private final CustomerRepository customerRepository;
     private KafkaSender kafkaSender;
-
-
-    //    @Value("${service.order.url}")
+       //    @Value("${service.order.url}")
 //    String orderApi;
 
     final String orderApi = "http://localhost:8086/order/";
@@ -109,8 +106,10 @@ public class CustomerService implements ICustomerService {
         return savedCustomer;
     }
 
-
-
+//    public Customer getCustomerInformationByIdFallback(Long id){
+//        Customer customer = new Customer();
+//        customer.setCustomerName("Asel");
+//    }
     @Override
     public void deleteById(Long id) {
         customerRepository.deleteById(id);
@@ -124,7 +123,6 @@ public class CustomerService implements ICustomerService {
                     @HystrixProperty(name="coreSize", value="100"),
                     @HystrixProperty(name="maxQueueSize", value="50"),
             }
-
     )
     public Customer getById(Long id) {
        kafkaSender.sendMessage("Attemp to create", "topic-1");
