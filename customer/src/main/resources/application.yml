@@ -9,11 +9,15 @@
    endpoints:
      web:
        exposure:
-         include: hystrix stream
+         include: hystrix.stream
 
-# hystrix:
-#   dashboard:
-#     proxy-stream-allow-list:
+ hystrix:
+   dashboard:
+     proxy-stream-allow-list: *
+
+     server:
+       servlet:
+         context-path: /api
 
  zuul:
    routes:
