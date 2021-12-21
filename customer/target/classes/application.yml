@@ -9,11 +9,15 @@
    endpoints:
      web:
        exposure:
-         include: hystrix stream
+         include: hystrix.stream
 
-# hystrix:
-#   dashboard:
-#     proxy-stream-allow-list:
+ hystrix:
+   dashboard:
+     proxy-stream-allow-list: '*'
+
+     server:
+       servlet:
+         context-path: /api
 
  zuul:
    routes:
@@ -32,6 +36,17 @@
        strip-prefix: false
        sensitive-headers: Cookie,Set-Cookie
 
+ io:
+   reflectoring:
+     kafka:
+       bootstrap-servers: localhost:9092
+       topic-1: CreateTeacherTopic
+
+   logging:
+     level:
+       org:
+         apache:
+           kafka: WARN
 
    server:
    servlet:
